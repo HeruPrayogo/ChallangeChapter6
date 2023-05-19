@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ChallangeChapter6</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="register">register</string>
+    <string name="masukkan_username">masukkan_username</string>
+    <string name="masukkan_email">masukkan_email</string>
+    <string name="masukkan_password">masukkan_password</string>
+    <string name="masukan_konfirmasi_password">masukan_konfirmasi_password</string>
+    <string name="daftar">daftar</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">login</string>
+    <string name="belum_punya_akun">belum punya akun</string>
+    <string name="welcome">WELCOME</string>
+    <string name="home">Home</string>
+    <string name="username">username</string>
+    <string name="nama_lengkap">nama_lengkap</string>
+    <string name="tanggal_lahir">tanggal_lahir</string>
+    <string name="alamat">alamat</string>
+    <string name="update">update</string>
+    <string name="logout">logout</string>
+    <string name="detail">detail</string>
+    <string name="todo">TODO</string>
+    <string name="judul">Judul</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="todo2">TODO</string>
+    <string name="rating">Rating</string>
+    <string name="favorite">Favorite</string>
+</resources>

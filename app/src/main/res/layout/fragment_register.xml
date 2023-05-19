@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.RegisterFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="43dp"
+        android:text="@string/register"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="124dp"
+        android:layout_height="111dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="151dp"
+        android:contentDescription="TODO"
+        app:srcCompat="@drawable/baseline_person_24"
+        tools:ignore="ContentDescription,HardcodedText" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/username"
+        android:layout_marginTop="25dp">
+
+        <EditText
+            android:id="@+id/uss"
+            android:backgroundTint="#DEFDE1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/masukkan_username"
+            tools:ignore="Autofill,SpeakableTextPresentCheck,TextFields,VisualLintTextFieldSize" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_below="@+id/username"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp">
+
+        <EditText
+            android:id="@+id/getEmail"
+            android:backgroundTint="#DEFDE1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/masukkan_email"
+            tools:ignore="Autofill,SpeakableTextPresentCheck,TextFields,VisualLintTextFieldSize" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RePass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        app:endIconMode="password_toggle"
+        android:layout_below="@+id/Email"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp">
+
+        <EditText
+            android:id="@+id/pass"
+            android:inputType="textPassword"
+            android:backgroundTint="#DEFDE1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/masukkan_password"
+            tools:ignore="Autofill,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode="password_toggle"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_below="@+id/RePass"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+
+        >
+
+        <EditText
+            android:id="@+id/cPass"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:backgroundTint="#DEFDE1"
+            android:layout_height="match_parent"
+            android:hint="@string/masukan_konfirmasi_password"
+            tools:ignore="Autofill,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/RegistBtn"
+        android:layout_width="363dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ConfirmPassword"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/daftar"
+        tools:ignore="VisualLintButtonSize" />
+</RelativeLayout>
