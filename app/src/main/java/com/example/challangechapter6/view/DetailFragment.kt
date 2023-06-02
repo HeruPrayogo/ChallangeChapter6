@@ -24,7 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlin.properties.Delegates
 
 
-@Suppress("DEPRECATION", "unused", "unused", "unused", "unused")
+@Suppress("DEPRECATION", "unused", "unused", "unused", "unused", "UNUSED_EXPRESSION")
 @AndroidEntryPoint
 class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding
@@ -46,23 +46,18 @@ class DetailFragment : Fragment() {
         viewModel = ViewModelProvider(this)[MovieViewModel::class.java]
         viewModel.liveDetail.observe(viewLifecycleOwner) { movie ->
             bindMovieData(movie)
-
         }
-        viewModel.getMovieDetail(getMovie)
-        setFavoriteListener()
-        checkFavoriteMovie(id)
+        if(getMovie != null) {
+            setFavoriteListener()
+            checkFavoriteMovie(getMovie)
+            viewModel.getMovieDetail(getMovie)
+        }
+
     }
 
 
     private fun bindMovieData(movie: Result) {
         viewModel.movie.observe(viewLifecycleOwner) {
-            selectedMovie = FilmFavorit(
-                it.id,
-                it.title,
-                it.releaseDate,
-                it.posterPath,
-                it.voteAverage
-            )
             binding.apply {
                 Glide.with(this@DetailFragment)
                     .load("https://image.tmdb.org/t/p/w500${movie.posterPath}")
@@ -71,6 +66,13 @@ class DetailFragment : Fragment() {
                 judul.text = movie.title
                 Tanggal.text = movie.releaseDate
                 deskripsi.text = movie.overview
+                selectedMovie = FilmFavorit(
+                    it.id,
+                    it.title,
+                    it.releaseDate,
+                    it.posterPath,
+                    it.voteAverage
+                )
             }
         }
     }
@@ -91,7 +93,8 @@ class DetailFragment : Fragment() {
     private fun setFavoriteListener() {
         binding.floating.apply {
             setOnClickListener {
-                isFavorite = if (!isFavorite) {
+                isFavorite =
+                if (!isFavorite) {
                     addToFavorite(selectedMovie)
                     binding.floating.setImageResource(R.drawable.baseline_favorite_24)
                     true
@@ -131,6 +134,7 @@ class DetailFragment : Fragment() {
             }
         }
     }
+
 }
 
 

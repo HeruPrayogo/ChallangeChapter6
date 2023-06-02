@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -26,7 +27,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var sharedPreferences: SharedPreferences
+    lateinit var sharedPreferences: SharedPreferences
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
@@ -40,13 +41,14 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         auth = Firebase.auth
         binding.Register.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
         getAcc()
     }
-    private fun getAcc(){
+    fun getAcc(){
         sharedPreferences = requireContext().getSharedPreferences("InsertAcc", AppCompatActivity.MODE_PRIVATE)
         binding.btnLogin.setOnClickListener {
             val getEmail = sharedPreferences.getString("email", "")
@@ -54,7 +56,10 @@ class LoginFragment : Fragment() {
             val email = binding.insEmail.text.toString()
             val pass = binding.insPass.text.toString()
             if(email == getEmail.toString() && pass == getPass.toString()){
+                Toast.makeText(context,"Login Berhasil", Toast.LENGTH_SHORT).show()
                 signInWithEmailAndPassword(email = getEmail.toString(), password = getPass.toString())
+            }else{
+                Toast.makeText(context,"Password Atau Email Salah", Toast.LENGTH_SHORT).show()
             }
         }
     }

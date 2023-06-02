@@ -33,6 +33,8 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
+        sharedPreferences = requireContext().getSharedPreferences("InsertAcc", Context.MODE_PRIVATE)
+        binding.uss.setText(sharedPreferences.getString("uss", " "))
         updateUsername()
         binding.Logout.setOnClickListener {
             Firebase.auth.signOut()
